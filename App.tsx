@@ -2,7 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-
 import data from "./assets/data.json";
 
 type Weather = {
@@ -17,7 +16,7 @@ type Weather = {
 };
 
 export default function App() {
-  const [city, setCity] = useState<string>("Fortaleza");
+  const [city] = useState<string>("Fortaleza");
   const [weather, setWeather] = useState<Weather>();
 
   useEffect(() => {
@@ -79,17 +78,17 @@ export default function App() {
       </View>
       <View style={styles.footer}>
         <View style={styles.footer_item}>
-          <FontAwesome5 name="wind" size={48} color="yellow" />
+          <FontAwesome5 name="wind" size={48} color="#f9f93b" />
           <Text style={styles.footer_measure_text}>{weather?.wind}</Text>
           <Text style={styles.footer_label_text}>vento</Text>
         </View>
         <View style={styles.footer_item}>
-          <FontAwesome5 name="water" size={48} color="yellow" />
+          <FontAwesome5 name="water" size={48} color="#f9f93b" />
           <Text style={styles.footer_measure_text}>{weather?.humidity}</Text>
           <Text style={styles.footer_label_text}>umidade</Text>
         </View>
         <View style={styles.footer_item}>
-          <FontAwesome5 name="eye" size={48} color="yellow" />
+          <FontAwesome5 name="eye" size={48} color="#f9f93b" />
           <Text style={styles.footer_measure_text}>{weather?.visibility}</Text>
           <Text style={styles.footer_label_text}>visibilidade</Text>
         </View>
@@ -101,7 +100,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "#f9f93b",
     alignItems: "center",
     justifyContent: "space-evenly",
     paddingHorizontal: 25,
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   climate: {
-    fontWeight: "700",
+    fontWeight: "800",
     fontSize: 15,
   },
   temperature: {
@@ -133,6 +132,7 @@ const styles = StyleSheet.create({
   daily_summary_text: {
     fontWeight: "800",
     marginVertical: 5,
+    fontSize: 17
   },
   footer: {
     flexDirection: "row",
@@ -147,10 +147,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   footer_measure_text: {
-    color: "yellow",
+    color: "#f9f93b",
     fontWeight: "600",
   },
   footer_label_text: {
-    color: "yellow",
+    color: "#a8a308",
   },
 });
